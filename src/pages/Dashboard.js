@@ -1,26 +1,21 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Dashboard = ({stock}) => {
+function Dashboard(props) {
+
+
   return (
     <div>
-      {stock.map((stock) => (
-        // <div key={stock.name}>
-        //   <div>{stock.name}</div>
-        //   <div>{stock.lastPrice}</div>
-        //   <div>{stock.change}</div>
-        // </div>
-        <ul>
-          
-            <Link to={`${stock.stock}`} key={stock.stock}>
-              <li>{stock.name}</li>
-            </Link>
-     
-        </ul>
-      ))}
+      <h2>Your Stocks</h2>
+      <ul>
+        {props.data.map((p) => (
+          <Link to={`${p.symbol}`} key={p.symbol}>
+            <li>{p.name}</li>
+          </Link>
+        ))}
+      </ul>
     </div>
   );
 }
 
-export default Dashboard
-
+export default Dashboard;

@@ -1,26 +1,20 @@
-
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import About from "./pages/About";
-import Dashboard from "./pages/Dashboard"
-import Stock from "./pages/Stock";
 import Nav from "./components/Nav";
-import stocks from "./stock-data";
-import { useState } from "react";
+import Symbol from "./components/Symbol";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import data from "./stock-data";
 
 function App() {
-  const [stock, setStock] = useState(stocks);
-  console.log(stock);
   return (
     <div className="App">
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/dashboard" element={<Dashboard stock={stock} />} />
-        <Route path="/stocks/symbol" element={<Stock stock={stock} />} />
-        
-        {/* <Route path="/price/:symbol" element={<Stock />} /> */}
+        <Route path="/stocks" element={<Dashboard data={data} />} />
+        <Route path="/stocks/:symbol" element={<Symbol data={data} />} />
       </Routes>
     </div>
   );

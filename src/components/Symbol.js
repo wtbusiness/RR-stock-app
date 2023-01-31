@@ -1,16 +1,15 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
 
+import { useParams } from "react-router-dom";
 
 function Symbol(props) {
   let stockID = useParams()["symbol"];
-   //console.log(stockID);
-   //console.log(props.data);
 
-  const dashBoardList = props.data;
 
-  const found = dashBoardList.find((element) => element.symbol === stockID);
-  // console.log(found);
+  const stocks = props.data;
+
+  const found = stocks.find((element) => element.symbol === stockID);
+  
 
   return (
     <div>
@@ -21,4 +20,3 @@ function Symbol(props) {
 }
 
 export default Symbol;
-
